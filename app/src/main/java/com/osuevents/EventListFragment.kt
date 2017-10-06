@@ -3,10 +3,8 @@ package com.osuevents
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +27,9 @@ class EventListFragment : Fragment() {
     private val TAG: String = javaClass.simpleName
 
     private var mListener: OnListFragmentInteractionListener? = null
+    var title: String = ""
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

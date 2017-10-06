@@ -2,7 +2,6 @@ package com.osuevents
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import kotlinx.android.synthetic.main.activity_event_list.*
 
 class EventListActivity : AppCompatActivity() {
@@ -13,12 +12,24 @@ class EventListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_list)
-        fragments.add(EventListFragment())
-        fragments.add(EventListFragment())
-        fragments.add(EventListFragment())
-        fragments.add(EventListFragment())
+
+        var fragBookmarked = EventListFragment()
+        fragBookmarked.title = getString(R.string.tab_bookmarked)
+        fragments.add(fragBookmarked)
+
+        var fragToday = EventListFragment()
+        fragToday.title = getString(R.string.tab_today)
+        fragments.add(fragToday)
+
+        var fragThisWeek = EventListFragment()
+        fragThisWeek.title = getString(R.string.tab_this_week)
+        fragments.add(fragThisWeek)
+
+        var fragThisMonth = EventListFragment()
+        fragThisMonth.title = getString(R.string.tab_this_month)
+        fragments.add(fragThisMonth)
+
         pager.adapter = EventListFragmentPagerAdapter(supportFragmentManager, fragments)
-        //tabs.setupWithViewPager(pager, true)
-        var tabs = findViewById<View>(R.id.tabs)
+        tabs.setupWithViewPager(pager, true)
     }
 }
