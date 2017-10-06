@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,14 +30,14 @@ class EventListFragment : Fragment() {
     private var mListener: OnListFragmentInteractionListener? = null
     var title: String = ""
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d(TAG, "onCreate() invoked on fragment " + title)
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        Log.d(TAG, "onCreateView() invoked on fragment " + title)
         val view = inflater!!.inflate(R.layout.fragment_eventlistitem_list, container, false)
 
         // Set the adapter
@@ -50,6 +51,7 @@ class EventListFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
+        Log.d(TAG, "onAttach() invoked on fragment " + title)
         if (context is OnListFragmentInteractionListener) {
             mListener = context
         } else {
@@ -59,7 +61,43 @@ class EventListFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
+        Log.d(TAG, "onDetach() invoked on fragment " + title)
         mListener = null
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.d(TAG, "onActivityCreated() invoked on fragment " + title)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "onStart() invoked on fragment " + title)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "onResume() invoked on fragment " + title)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause() invoked on fragment " + title)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop() invoked on fragment " + title)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d(TAG, "onDestroyView() invoked on fragment " + title)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "onDestroyView() invoked on fragment " + title)
     }
 
     /**
