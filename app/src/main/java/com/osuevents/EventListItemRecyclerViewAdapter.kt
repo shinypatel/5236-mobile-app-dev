@@ -1,5 +1,6 @@
 package com.osuevents
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ class EventListItemRecyclerViewAdapter(private val mValues: List<DummyItem>, pri
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.fragment_eventlistitem, parent, false)
+
         return ViewHolder(view)
     }
 
@@ -29,9 +31,10 @@ class EventListItemRecyclerViewAdapter(private val mValues: List<DummyItem>, pri
         holder.mIdView.text = mValues[position].id
         holder.mContentView.text = mValues[position].content
 
-//        holder.mView.setOnClickListener {
-//            mListener?.onListFragmentInteraction(holder.mItem)
-//        }
+        holder.mView.setOnClickListener {
+            val intent = Intent(holder.mView.context, EventDetailsActivity::class.java)
+            holder.mView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
