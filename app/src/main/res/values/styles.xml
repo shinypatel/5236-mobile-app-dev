@@ -16,7 +16,6 @@
     <style name="EventDetailsButton">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/colorTitleText</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:padding">8dp</item>
     </style>
 

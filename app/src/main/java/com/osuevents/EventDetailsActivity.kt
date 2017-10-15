@@ -8,5 +8,13 @@ class EventDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                    .beginTransaction()
+                    .add(R.id.fragment_event_details, EventDetailsFragment())
+                    .commit()
+        }
+
     }
 }
