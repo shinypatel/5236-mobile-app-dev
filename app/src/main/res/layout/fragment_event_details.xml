@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/calender"
+            android:layout_toStartOf="@id/calender_button"
             android:text="Event Date"
             android:padding="4dp"/>
 
@@ -40,16 +40,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@id/event_date"
-            android:layout_toStartOf="@id/calender"
+            android:layout_toStartOf="@id/calender_button"
             android:text="Event Time"
             android:padding="4dp"/>
 
         <Button
-            android:id="@+id/calender"
+            android:id="@+id/calender_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="@string/calender"
+            android:text="@string/add_to_calender"
             style="@style/EventDetailsButton"/>
 
     </RelativeLayout>
@@ -64,16 +64,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/map"
-            android:text="Event Location"
+            android:layout_toStartOf="@id/map_button"
+            android:text="2015 Neil Ave"
             android:padding="4dp"/>
 
         <Button
-            android:id="@+id/map"
+            android:id="@+id/map_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="@string/map"
+            android:text="@string/show_in_map"
             style="@style/EventDetailsButton"/>
 
     </RelativeLayout>
@@ -88,16 +88,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/url"
-            android:text="Event URL"
+            android:layout_toStartOf="@id/url_button"
+            android:text="https://www.osu.edu/events"
             android:padding="4dp"/>
 
         <Button
-            android:id="@+id/url"
+            android:id="@+id/url_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="@string/url"
+            android:text="@string/open_url"
             style="@style/EventDetailsButton"/>
 
     </RelativeLayout>
