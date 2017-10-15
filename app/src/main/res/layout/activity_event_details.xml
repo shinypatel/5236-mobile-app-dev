@@ -15,7 +15,7 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/event_details"
-            app:titleTextColor="@color/colorTitleText" />
+            app:titleTextColor="@color/colorTitleText"/>
 
     </android.support.design.widget.AppBarLayout>
 

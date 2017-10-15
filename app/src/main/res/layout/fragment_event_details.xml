@@ -11,8 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Eos causae scripta democritum ei"
-        android:textSize="16pt"
-        android:textColor="@color/black"/>
+        android:textSize="16pt"/>
 
     <TextView
         android:id="@+id/event_description"
@@ -30,8 +29,8 @@
             android:id="@+id/event_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@id/calender"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/calender"
             android:text="Event Date"
             android:padding="4dp"/>
 
@@ -39,9 +38,9 @@
             android:id="@+id/event_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_below="@id/event_date"
-            android:layout_toLeftOf="@id/calender"
+            android:layout_toStartOf="@id/calender"
             android:text="Event Time"
             android:padding="4dp"/>
 
@@ -49,7 +48,7 @@
             android:id="@+id/calender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:text="@string/calender"
             style="@style/EventDetailsButton"/>
 
@@ -64,8 +63,8 @@
             android:id="@+id/event_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@id/map"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/map"
             android:text="Event Location"
             android:padding="4dp"/>
 
@@ -73,7 +72,7 @@
             android:id="@+id/map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:text="@string/map"
             style="@style/EventDetailsButton"/>
 
@@ -88,8 +87,8 @@
             android:id="@+id/event_url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@id/url"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/url"
             android:text="Event URL"
             android:padding="4dp"/>
 
@@ -97,7 +96,7 @@
             android:id="@+id/url"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:text="@string/url"
             style="@style/EventDetailsButton"/>
 
