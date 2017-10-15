@@ -1,0 +1,106 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.osuevents.EventDetailsFragment"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/event_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eos causae scripta democritum ei"
+        android:textSize="16pt"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/event_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lorem ipsum dolor sit amet, id nec dicta ocurreret, has in omnis congue petentium. Duo dicat mollis viderer ex, regione vituperatoribus ea quo. Nulla ancillae indoctum ad vel, eos id nobis dolore tamquam. Ei pro discere eleifend, novum putent timeam cu vix."
+        android:layout_marginVertical="16dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp">
+
+        <TextView
+            android:id="@+id/event_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/calender"
+            android:text="Event Date"
+            android:padding="4dp"/>
+
+        <TextView
+            android:id="@+id/event_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/event_date"
+            android:layout_toLeftOf="@id/calender"
+            android:text="Event Time"
+            android:padding="4dp"/>
+
+        <Button
+            android:id="@+id/calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/calender"
+            style="@style/EventDetailsButton"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp">
+
+        <TextView
+            android:id="@+id/event_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/map"
+            android:text="Event Location"
+            android:padding="4dp"/>
+
+        <Button
+            android:id="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/map"
+            style="@style/EventDetailsButton"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp">
+
+        <TextView
+            android:id="@+id/event_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/url"
+            android:text="Event URL"
+            android:padding="4dp"/>
+
+        <Button
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/url"
+            style="@style/EventDetailsButton"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

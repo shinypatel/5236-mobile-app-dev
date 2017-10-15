@@ -9,4 +9,7 @@
     <string name="action_about">About</string>
 
     <string name="event_details">Event Details</string>
+    <string name="calender">Add to Calender</string>
+    <string name="map">Show in Map</string>
+    <string name="url">Open URL</string>
 </resources>
