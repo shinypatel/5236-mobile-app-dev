@@ -35,6 +35,16 @@ class EventDetailsFragment : Fragment() {
             startActivity(intent)
         }
 
+        val title = view.findViewById<TextView>(R.id.event_title).text.toString()
+        val calButton = view.findViewById<TextView>(R.id.calender_button)
+        calButton.setOnClickListener{
+            val intent = Intent(Intent.ACTION_EDIT)
+            intent.type = "vnd.android.cursor.item/event"
+            intent.putExtra("eventLocation", location)
+            intent.putExtra("title", title)
+            startActivity(intent)
+        }
+
         return view
     }
 

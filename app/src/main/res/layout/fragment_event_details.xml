@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/map_button"
-            android:text="2015 Neil Ave"
+            android:text="Dreese Lab"
             android:padding="4dp"/>
 
         <Button
