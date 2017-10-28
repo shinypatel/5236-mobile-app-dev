@@ -58,7 +58,7 @@ class EventListActivity : AppCompatActivity() {
         var fragToday = EventListFragment()
         fragToday.title = getString(R.string.tab_today)
         fragments.add(fragToday)
-54
+
         var fragThisWeek = EventListFragment()
         fragThisWeek.title = getString(R.string.tab_this_week)
         fragments.add(fragThisWeek)
