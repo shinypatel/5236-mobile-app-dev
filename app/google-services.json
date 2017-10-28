@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "637057791629",
+    "firebase_url": "https://osu-events.firebaseio.com",
+    "project_id": "osu-events",
+    "storage_bucket": "osu-events.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637057791629:android:1fa989bf5aeaf1de",
+        "android_client_info": {
+          "package_name": "com.osuevents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637057791629-re7if7hkbtm69llo96mf8klbbiqma0n4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkEZGtOCYEeksDnPBc9kmcGWQj337S54w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
