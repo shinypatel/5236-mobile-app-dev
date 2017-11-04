@@ -12,4 +12,9 @@
     <string name="add_to_calender">Add to Calender</string>
     <string name="show_in_map">Show in Map</string>
     <string name="open_url">Open URL</string>
+    <string name="all_day">All-day event</string>
+
+    <string name="long_date_format">yyyy-MM-dd HH:mm:ss</string>
+    <string name="short_date_format">MMM dd</string>
+    <string name="time_format">hh:mm a</string>
 </resources>

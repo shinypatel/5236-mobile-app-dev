@@ -3,11 +3,12 @@ package com.osuevents
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.osuevents.fragment.EventListFragment
 
 /**
  * Created by sufianlatif on 10/4/2017.
  */
-class EventListFragmentPagerAdapter(fm: FragmentManager, private val fragments: ArrayList<EventListFragment>) : FragmentPagerAdapter(fm) {
+class EventListFragmentPagerAdapter(fm: FragmentManager, private val fragments: ArrayList<EventListFragment>, private val titles: ArrayList<String>) : FragmentPagerAdapter(fm) {
     private val TAG: String = javaClass.simpleName
 
     override fun getItem(position: Int): Fragment {
