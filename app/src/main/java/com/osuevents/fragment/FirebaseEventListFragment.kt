@@ -1,5 +1,6 @@
 package com.osuevents.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -11,6 +12,7 @@ import android.widget.TextView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.Query
+import com.osuevents.EventDetailsActivity
 import com.osuevents.R
 import com.osuevents.data.Event
 import java.text.SimpleDateFormat
@@ -42,6 +44,11 @@ class FirebaseEventListFragment : EventListFragment() {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListItemViewHolder {
                 var view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_event_list_item, parent, false)
+                view.setOnClickListener({
+                    val intent = Intent(activity.applicationContext, EventDetailsActivity::class.java)
+                    startActivity(intent)
+                })
+
                 return EventListItemViewHolder(view)
             }
         }

@@ -84,6 +84,7 @@ class EventListActivity : AppCompatActivity() {
                 .endAt(dateToday + "9")
         fragToday.query = query
         fragments.add(fragToday)
+        fragToday
 
         var fragThisWeek = FirebaseEventListFragment()
         fragThisWeek.title = getString(R.string.tab_this_week)

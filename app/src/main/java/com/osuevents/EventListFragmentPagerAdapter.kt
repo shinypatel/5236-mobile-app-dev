@@ -22,4 +22,5 @@ class EventListFragmentPagerAdapter(fm: FragmentManager, private val fragments: 
     override fun getPageTitle(position: Int): CharSequence {
         return fragments[position].title
     }
+
 }
