@@ -1,5 +1,6 @@
 package com.osuevents
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -13,6 +14,10 @@ import android.widget.TextView
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.*
+import android.content.Context.LOCATION_SERVICE
+import android.location.LocationManager
+
+
 
 class EventDetailsFragment : Fragment() {
     val TAG: String = javaClass.simpleName
@@ -41,7 +46,7 @@ class EventDetailsFragment : Fragment() {
             startActivity(mapIntent)
         }
 
-        
+
         val title = view.findViewById<TextView>(R.id.event_title)
         title.text = intent.getStringExtra("title")
 
