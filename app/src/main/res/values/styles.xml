@@ -19,6 +19,34 @@
         <item name="android:padding">8dp</item>
     </style>
 
+    <style name="SearchPrompt">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">28dp</item>
+    </style>
+
+    <style name="HintColor">
+        <item name="android:textColorHint">@color/lightGrey</item>
+    </style>
+
+    <style name="Search">
+        <item name="android:textColor">@color/colorTitleText</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="Dates">
+        <item name="android:longClickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <style name="DateLabels">
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:textSize">6pt</item>
+        <item name="android:textColor">@color/lightGrey</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
