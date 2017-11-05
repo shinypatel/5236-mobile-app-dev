@@ -20,5 +20,8 @@
 
     <string name="date">%1$s - %2$s</string>
     <string name="time">%1$s %2$s</string>
+    <string name="title_activity_search">Search</string>
+
+    <string name="search">Search</string>
 
 </resources>
