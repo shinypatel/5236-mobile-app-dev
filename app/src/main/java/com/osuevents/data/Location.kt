@@ -6,6 +6,13 @@ class Location() {
     var longitude: Double? = null
 
     override fun toString(): String {
-        return "{ loc: \"" + location + "\", lat: " + latitude + ", lon:  " + longitude + " }"
+        if (location != null) {
+            return location.toString()
+        } else if (latitude != null && longitude != null) {
+            return latitude.toString() + "," + longitude.toString()
+        }else{
+            return ""
+        }
     }
+
 }
