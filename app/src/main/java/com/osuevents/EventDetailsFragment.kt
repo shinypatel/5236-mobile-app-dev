@@ -88,10 +88,8 @@ class EventDetailsFragment : Fragment() {
         val endTime = intent.getStringExtra("endTime")
         if(allDay == "true"){
             time.text = getString(R.string.all_day)
-        }else if(startTime != endTime.substring(2)){
+        }else {
             time.text = getString(R.string.time, startTime, endTime)
-        }else{
-            time.text = startTime
         }
 
         val startDateAndTimeStr = intent.getStringExtra("startDateAndTime")

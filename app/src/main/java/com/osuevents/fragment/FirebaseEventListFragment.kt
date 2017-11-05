@@ -86,7 +86,7 @@ class FirebaseEventListFragment : EventListFragment() {
                 dateToView.visibility = View.INVISIBLE
                 timesView.visibility = View.VISIBLE
                 fromView.text = SimpleDateFormat(getString(R.string.time_format)).format(startDate)
-                toView.text = if(endDate != null) "- " + SimpleDateFormat(getString(R.string.time_format)).format(endDate) else ""
+                toView.text = if(endDate != null && endDate.after(startDate)) "- " + SimpleDateFormat(getString(R.string.time_format)).format(endDate) else ""
             }
 
             itemView.setOnClickListener({
