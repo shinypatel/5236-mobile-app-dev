@@ -101,7 +101,7 @@ class FirebaseEventListFragment : EventListFragment() {
                 intent.putExtra("endTime", toView.text.toString())
 
                 intent.putExtra("content", event.content.toString())
-                intent.putExtra("url", event.url.toString())
+                intent.putExtra("link", event.link.toString())
                 intent.putExtra("location", event.location.toString())
                 startActivity(intent)
             })

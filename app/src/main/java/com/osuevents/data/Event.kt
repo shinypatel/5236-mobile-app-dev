@@ -6,7 +6,7 @@ class Event() {
     var start_date: String? = null
     var end_date: String? = null
     var all_day: Boolean? = false
-    var url: String? = null
+    var link: String? = null
     var content: String? = null
     var location: Location? = null
 }
