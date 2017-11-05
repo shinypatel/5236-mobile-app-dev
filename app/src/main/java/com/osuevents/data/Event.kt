@@ -8,5 +8,5 @@ class Event() {
     var all_day: Boolean? = false
     var url: String? = null
     var content: String? = null
-    //var location: Map<String, Any>? = null
+    var location: Location? = null
 }
