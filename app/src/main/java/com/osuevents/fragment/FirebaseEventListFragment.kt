@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -101,7 +102,7 @@ class FirebaseEventListFragment : EventListFragment() {
                 intent.putExtra("endTime", toView.text.toString())
 
                 intent.putExtra("content", event.content.toString())
-                intent.putExtra("link", event.link.toString())
+                intent.putExtra("url", event.link.toString())
                 intent.putExtra("location", event.location.toString())
                 startActivity(intent)
             })

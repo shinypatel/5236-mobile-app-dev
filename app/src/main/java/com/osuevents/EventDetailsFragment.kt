@@ -13,9 +13,11 @@ import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.text.Html
 import android.text.Spanned
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import java.text.SimpleDateFormat
 import java.util.*
@@ -39,7 +41,7 @@ class EventDetailsFragment : Fragment() {
 
         val urlStr = intent.getStringExtra("url")
         val urlButton = view.findViewById<TextView>(R.id.url_button)
-        if(urlStr != "null"){
+        if(!urlStr.isBlank()){
             val url = view.findViewById<TextView>(R.id.event_url)
             url.text = urlStr
             urlButton.setOnClickListener{
@@ -47,27 +49,36 @@ class EventDetailsFragment : Fragment() {
                 startActivity(browserIntent)
             }
         }else{
-            urlButton.visibility = View.INVISIBLE
+            val urlLayout = view.findViewById<RelativeLayout>(R.id.url_layout)
+            urlLayout.visibility = View.GONE
         }
 
 
-        val eventLoc = view.findViewById<TextView>(R.id.event_location).text.toString()
+        val locStr = intent.getStringExtra("location")
         val mapButton = view.findViewById<TextView>(R.id.map_button)
-        mapButton.setOnClickListener{
-            if (ContextCompat.checkSelfPermission(activity.applicationContext,
-                    Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions()
-            }else {
-                val lm = activity.applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-                val currentLoc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-                val lat = currentLoc.latitude
-                val lng = currentLoc.longitude
-                val loc = "http://maps.google.com/maps?saddr:$lat,$lng&daddr=$eventLoc"
-                val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(loc))
-                startActivity(mapIntent)
+        if(!locStr.isBlank() && !locStr.contains("null")){
+            val eventLoc = view.findViewById<TextView>(R.id.event_location)
+            eventLoc.text = locStr
+            mapButton.setOnClickListener{
+                if (ContextCompat.checkSelfPermission(activity.applicationContext,
+                        Manifest.permission.ACCESS_FINE_LOCATION)
+                        != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions()
+                }else {
+                    val lm = activity.applicationContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+                    val currentLoc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                    val lat = currentLoc.latitude
+                    val lng = currentLoc.longitude
+                    val loc = "http://maps.google.com/maps?saddr:$lat,$lng&daddr=$locStr"
+                    val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(loc))
+                    startActivity(mapIntent)
+                }
             }
+        }else{
+            val mapLayout = view.findViewById<RelativeLayout>(R.id.map_layout)
+            mapLayout.visibility = View.GONE
         }
+
 
 
         val title = view.findViewById<TextView>(R.id.event_title)
@@ -116,7 +127,7 @@ class EventDetailsFragment : Fragment() {
             }else {
                 val calIntent = Intent(Intent.ACTION_EDIT)
                 calIntent.type = "vnd.android.cursor.item/event"
-                calIntent.putExtra("eventLocation", eventLoc)
+                calIntent.putExtra("eventLocation", locStr)
                 calIntent.putExtra("title", title.text.toString())
                 calIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTimeCal.timeInMillis)
                 if (allDay == "true") {

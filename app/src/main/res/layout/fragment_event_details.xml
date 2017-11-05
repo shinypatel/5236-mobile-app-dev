@@ -49,6 +49,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/map_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp">
@@ -59,7 +60,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/map_button"
-            android:text="Dreese Lab"
             android:padding="4dp"/>
 
         <Button
@@ -73,6 +73,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/url_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="16dp">
