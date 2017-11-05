@@ -44,11 +44,6 @@ class FirebaseEventListFragment : EventListFragment() {
 
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventListItemViewHolder {
                 var view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_event_list_item, parent, false)
-                view.setOnClickListener({
-                    val intent = Intent(activity.applicationContext, EventDetailsActivity::class.java)
-                    startActivity(intent)
-                })
-
                 return EventListItemViewHolder(view)
             }
         }
@@ -93,6 +88,20 @@ class FirebaseEventListFragment : EventListFragment() {
                 fromView.text = SimpleDateFormat(getString(R.string.time_format)).format(startDate)
                 toView.text = if(endDate != null) "- " + SimpleDateFormat(getString(R.string.time_format)).format(endDate) else ""
             }
+
+            itemView.setOnClickListener({
+                val intent = Intent(activity.applicationContext, EventDetailsActivity::class.java)
+                intent.putExtra("title", event.title)
+                intent.putExtra("startDateAndTime", event.start_date.toString())
+                intent.putExtra("endDateAndTime", event.end_date.toString())
+                intent.putExtra("allDay", allDay.toString())
+                intent.putExtra("startDate", dateFromView.text.toString())
+                intent.putExtra("endDate", dateToView.text.toString())
+                intent.putExtra("startTime", fromView.text.toString())
+                intent.putExtra("endTime", toView.text.toString())
+                startActivity(intent)
+            })
         }
+
     }
 }

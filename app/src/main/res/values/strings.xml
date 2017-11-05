@@ -17,4 +17,8 @@
     <string name="long_date_format">yyyy-MM-dd HH:mm:ss</string>
     <string name="short_date_format">MMM dd</string>
     <string name="time_format">hh:mm a</string>
+
+    <string name="date">%1$s - %2$s</string>
+    <string name="time">%1$s %2$s</string>
+
 </resources>
