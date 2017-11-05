@@ -11,6 +11,7 @@ import android.provider.CalendarContract
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,11 +31,22 @@ class EventDetailsFragment : Fragment() {
         val view = inflater!!.inflate(R.layout.fragment_event_details, container, false)
 
         val intent = activity.intent;
-        val url = view.findViewById<TextView>(R.id.event_url).text.toString()
+
+        val description = view.findViewById<TextView>(R.id.event_description)
+        val content = intent.getStringExtra("content")
+        description.text = Html.fromHtml(content).toString()
+
+        val urlStr = intent.getStringExtra("url")
         val urlButton = view.findViewById<TextView>(R.id.url_button)
-        urlButton.setOnClickListener{
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(browserIntent)
+        if(urlStr != "null"){
+            val url = view.findViewById<TextView>(R.id.event_url)
+            url.text = urlStr
+            urlButton.setOnClickListener{
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(urlStr))
+                startActivity(browserIntent)
+            }
+        }else{
+            urlButton.visibility = View.INVISIBLE
         }
 
 

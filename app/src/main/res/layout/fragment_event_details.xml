@@ -16,7 +16,6 @@
         android:id="@+id/event_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lorem ipsum dolor sit amet, id nec dicta ocurreret, has in omnis congue petentium. Duo dicat mollis viderer ex, regione vituperatoribus ea quo. Nulla ancillae indoctum ad vel, eos id nobis dolore tamquam. Ei pro discere eleifend, novum putent timeam cu vix."
         android:layout_marginVertical="16dp"/>
 
     <RelativeLayout
@@ -84,7 +83,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/url_button"
-            android:text="https://www.osu.edu/events"
             android:padding="4dp"/>
 
         <Button
