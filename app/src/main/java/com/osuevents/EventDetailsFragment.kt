@@ -20,6 +20,9 @@ import android.widget.TextView
 import android.widget.Toast
 import java.text.SimpleDateFormat
 import java.util.*
+import android.text.Spanned
+
+
 
 class EventDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +38,7 @@ class EventDetailsFragment : Fragment() {
 
         val description = view.findViewById<TextView>(R.id.event_description)
         val content = intent.getStringExtra("content")
-        description.text = Html.fromHtml(content).toString()
+        description.text = fromHtml(content).toString()
 
         val urlStr = intent.getStringExtra("url")
         val urlButton = view.findViewById<TextView>(R.id.url_button)
@@ -98,9 +101,11 @@ class EventDetailsFragment : Fragment() {
         startTimeCal.time = startDateAndTime
 
         val endDateAndTimeStr = intent.getStringExtra("endDateAndTime")
-        val endDateAndTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(endDateAndTimeStr)
         val endTimeCal = Calendar.getInstance()
-        endTimeCal.time = endDateAndTime
+        if(endDateAndTimeStr != "null"){
+            val endDateAndTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(endDateAndTimeStr)
+            endTimeCal.time = endDateAndTime
+        }
 
         val calButton = view.findViewById<TextView>(R.id.calender_button)
         calButton.setOnClickListener{
@@ -148,6 +153,17 @@ class EventDetailsFragment : Fragment() {
                 return
             }
         }
+    }
+
+    @Override
+    fun fromHtml(html: String): Spanned {
+        val result: Spanned
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            result = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+        } else {
+            result = Html.fromHtml(html)
+        }
+        return result
     }
 
 }
