@@ -23,5 +23,11 @@
     <string name="title_activity_search">Search</string>
 
     <string name="search">Search</string>
+    <string name="search_prompt">Enter specific information about the event you are looking for.</string>
+    <string name="keywords">Keywords</string>
+    <string name="keywords_info">Keywords that should match event name or description</string>
+    <string name="location">Location</string>
+    <string name="from_date">From date</string>
+    <string name="to_date">To date</string>
 
 </resources>
