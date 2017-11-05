@@ -1,5 +1,6 @@
 package com.osuevents
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -84,7 +85,6 @@ class EventListActivity : AppCompatActivity() {
                 .endAt(dateToday + "9")
         fragToday.query = query
         fragments.add(fragToday)
-        fragToday
 
         var fragThisWeek = FirebaseEventListFragment()
         fragThisWeek.title = getString(R.string.tab_this_week)
@@ -114,7 +114,11 @@ class EventListActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
-            R.id.action_search -> TODO()
+            R.id.action_search -> {
+                val intent = Intent(this.applicationContext, SearchActivity::class.java)
+                startActivity(intent)
+                return true
+            }
             R.id.action_refresh -> TODO()
             else -> return super.onOptionsItemSelected(item)
         }
