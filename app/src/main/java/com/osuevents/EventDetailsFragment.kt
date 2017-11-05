@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -87,8 +88,10 @@ class EventDetailsFragment : Fragment() {
         val endTime = intent.getStringExtra("endTime")
         if(allDay == "true"){
             time.text = getString(R.string.all_day)
-        }else if(startTime != endTime){
+        }else if(startTime != endTime.substring(2)){
             time.text = getString(R.string.time, startTime, endTime)
+        }else{
+            time.text = startTime
         }
 
         val startDateAndTimeStr = intent.getStringExtra("startDateAndTime")
