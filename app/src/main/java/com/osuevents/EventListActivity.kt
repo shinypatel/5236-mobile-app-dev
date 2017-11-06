@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.osuevents.fragment.EventListFragment
 import com.osuevents.fragment.FirebaseEventListFragment
+import com.osuevents.fragment.SQLiteEventListFragment
 import kotlinx.android.synthetic.main.activity_event_list.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
@@ -71,11 +72,9 @@ class EventListActivity : AppCompatActivity() {
         var dateAfterAMonth = dateFormat.format(Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000))
         Log.d(TAG, dateToday + " " + dateAfterAWeek + " " + dateAfterAMonth)
 
-//        var fragBookmarked = EventListFragment()
-//        bundle = Bundle()
-//        fragBookmarked.title = getString(R.string.tab_bookmarked)
-//        fragBookmarked.arguments = bundle
-//        fragments.add(fragBookmarked)
+        var fragBookmarked = SQLiteEventListFragment()
+        fragBookmarked.title = getString(R.string.tab_bookmarked)
+        fragments.add(fragBookmarked)
 
         var fragToday = FirebaseEventListFragment()
         fragToday.title = getString(R.string.tab_today)
