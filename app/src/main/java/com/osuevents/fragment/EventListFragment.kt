@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -120,6 +121,8 @@ open class EventListFragment : Fragment() {
 
             itemView.setOnClickListener({
                 val intent = Intent(activity.applicationContext, EventDetailsActivity::class.java)
+                intent.putExtra("event", event)
+                intent.putExtra("id", event.id)
                 intent.putExtra("title", event.title)
                 intent.putExtra("startDateAndTime", event.start_date.toString())
                 intent.putExtra("endDateAndTime", event.end_date.toString())
@@ -131,6 +134,7 @@ open class EventListFragment : Fragment() {
                 intent.putExtra("content", event.content.toString())
                 intent.putExtra("url", event.link.toString())
                 intent.putExtra("location", event.location.toString())
+                Log.d(TAG, "Opening details activity for " + event.id)
                 startActivity(intent)
             })
         }

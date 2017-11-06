@@ -1,6 +1,8 @@
 package com.osuevents.data
 
-class Event() {
+import java.io.Serializable
+
+class Event(): Serializable {
     var id: Int? = null
     var title: String? = null
     var start_date: String? = null
