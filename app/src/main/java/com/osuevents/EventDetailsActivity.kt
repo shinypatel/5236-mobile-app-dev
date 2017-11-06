@@ -54,11 +54,11 @@ class EventDetailsActivity : AppCompatActivity() {
                 if(bookmarked == true) {
                     item.icon = getDrawable(R.drawable.ic_bookmark_border_white_24dp)
                     dbHandler?.removeEvent(event?.id)
-                    Toast.makeText(this, R.string.bookmark_removed, Toast.LENGTH_SHORT)
+                    Toast.makeText(this, R.string.bookmark_removed, Toast.LENGTH_SHORT).show()
                 } else {
                     item.icon = getDrawable(R.drawable.ic_bookmark_white_24dp)
                     dbHandler?.addEvent(event)
-                    Toast.makeText(this, R.string.bookmark_added, Toast.LENGTH_SHORT)
+                    Toast.makeText(this, R.string.bookmark_added, Toast.LENGTH_SHORT).show()
                 }
                 return true
             }

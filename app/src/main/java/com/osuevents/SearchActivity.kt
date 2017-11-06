@@ -18,7 +18,7 @@ class SearchActivity : AppCompatActivity() {
 
         val startDateCal = Calendar.getInstance()
         val fromDateView = findViewById<EditText>(R.id.from_date)
-        fromDateView.setText(SimpleDateFormat(getString(R.string.search_date_format)).format(Date()))
+//        fromDateView.setText(SimpleDateFormat(getString(R.string.search_date_format)).format(Date()))
         val fromDate = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             startDateCal.set(Calendar.YEAR, year)
             startDateCal.set(Calendar.MONTH, monthOfYear)
@@ -34,7 +34,7 @@ class SearchActivity : AppCompatActivity() {
 
         val toDateCal = Calendar.getInstance()
         val toDateView = findViewById<EditText>(R.id.to_date)
-        toDateView.setText(SimpleDateFormat(getString(R.string.search_date_format)).format(Date()))
+//        toDateView.setText(SimpleDateFormat(getString(R.string.search_date_format)).format(Date()))
         val toDate = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
             toDateCal.set(Calendar.YEAR, year)
             toDateCal.set(Calendar.MONTH, monthOfYear)
