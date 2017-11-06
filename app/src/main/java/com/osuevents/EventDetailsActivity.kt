@@ -1,14 +1,14 @@
 package com.osuevents
 
-import android.support.v7.app.AppCompatActivity
+//import com.osuevents.db.EventSQLite
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.osuevents.data.Event
 import com.osuevents.db.DatabaseHandler
-//import com.osuevents.db.EventSQLite
 import kotlinx.android.synthetic.main.activity_event_list.*
 
 class EventDetailsActivity : AppCompatActivity() {
@@ -52,10 +52,12 @@ class EventDetailsActivity : AppCompatActivity() {
         when (item!!.itemId) {
             R.id.action_bookmark -> {
                 if(bookmarked == true) {
+                    bookmarked = false
                     item.icon = getDrawable(R.drawable.ic_bookmark_border_white_24dp)
                     dbHandler?.removeEvent(event?.id)
                     Toast.makeText(this, R.string.bookmark_removed, Toast.LENGTH_SHORT).show()
                 } else {
+                    bookmarked = true
                     item.icon = getDrawable(R.drawable.ic_bookmark_white_24dp)
                     dbHandler?.addEvent(event)
                     Toast.makeText(this, R.string.bookmark_added, Toast.LENGTH_SHORT).show()
