@@ -14,7 +14,6 @@ import android.widget.TextView
 import com.osuevents.EventDetailsActivity
 import com.osuevents.R
 import com.osuevents.data.Event
-import com.osuevents.dummy.DummyContent.DummyItem
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -91,13 +90,13 @@ open class EventListFragment : Fragment() {
     }
 
     inner class EventListItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var titleView: TextView = itemView.findViewById<TextView>(R.id.text_event_title)
-        var dateFromView: TextView = itemView.findViewById<TextView>(R.id.text_date_from)
-        var dateToView: TextView = itemView.findViewById<TextView>(R.id.text_date_to)
-        var timesView: LinearLayout = itemView.findViewById<LinearLayout>(R.id.text_times)
-        var fromView: TextView = itemView.findViewById<TextView>(R.id.text_from)
-        var toView: TextView = itemView.findViewById<TextView>(R.id.text_to)
-        var allDayView: TextView = itemView.findViewById<TextView>(R.id.text_all_day)
+        var titleView = itemView.findViewById<TextView>(R.id.text_event_title)
+        var dateFromView = itemView.findViewById<TextView>(R.id.text_date_from)
+        var dateToView = itemView.findViewById<TextView>(R.id.text_date_to)
+        var timesView = itemView.findViewById<LinearLayout>(R.id.text_times)
+        var fromView = itemView.findViewById<TextView>(R.id.text_from)
+        var toView = itemView.findViewById<TextView>(R.id.text_to)
+        var allDayView = itemView.findViewById<TextView>(R.id.text_all_day)
 
         fun bind(event: Event) {
             titleView.text = event.title
@@ -148,6 +147,6 @@ open class EventListFragment : Fragment() {
      */
     interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: DummyItem)
+//        fun onListFragmentInteraction(item: DummyItem)
     }
 }

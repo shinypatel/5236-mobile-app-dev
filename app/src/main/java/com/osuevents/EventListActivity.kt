@@ -20,8 +20,7 @@ import java.util.*
 class EventListActivity : AppCompatActivity() {
     private val TAG: String = javaClass.simpleName
 
-    private
-    var dbRef: DatabaseReference? = null
+    private var dbRef: DatabaseReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
