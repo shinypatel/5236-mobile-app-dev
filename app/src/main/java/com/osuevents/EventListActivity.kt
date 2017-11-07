@@ -3,6 +3,7 @@ package com.osuevents
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -117,7 +118,10 @@ class EventListActivity : AppCompatActivity() {
                 startActivity(intent)
                 return true
             }
-            R.id.action_refresh -> TODO()
+            R.id.action_refresh -> {
+                (pager.getChildAt(pager.currentItem) as RecyclerView).adapter?.notifyDataSetChanged()
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
     }

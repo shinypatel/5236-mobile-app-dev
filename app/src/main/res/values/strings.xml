@@ -18,13 +18,14 @@
     <string name="long_date_format">yyyy-MM-dd HH:mm:ss</string>
     <string name="short_date_format">MMM dd</string>
     <string name="time_format">hh:mm a</string>
-    <string name="search_date_format">EEE, MMM d, yyyy</string>
+    <string name="search_date_format">yyyy-MM-dd</string>
 
     <string name="date">%1$s - %2$s</string>
     <string name="time">%1$s %2$s</string>
     <string name="title_activity_search">Search</string>
 
     <string name="search">Search</string>
+    <string name="search_results">Search results</string>
     <string name="search_prompt">Enter specific information about the event you are looking for.</string>
     <string name="keywords">Keywords</string>
     <string name="keywords_info">Keywords that should match event name or description</string>

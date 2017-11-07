@@ -1,6 +1,5 @@
 package com.osuevents
 
-//import com.osuevents.db.EventSQLite
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -31,8 +30,6 @@ class EventDetailsActivity : AppCompatActivity() {
                     .add(R.id.fragment_event_details, EventDetailsFragment())
                     .commit()
         }
-
-        Log.d(TAG, "End of onCreate")
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

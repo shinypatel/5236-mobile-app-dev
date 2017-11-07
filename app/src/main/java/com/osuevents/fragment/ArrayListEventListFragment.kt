@@ -8,20 +8,16 @@ import com.osuevents.R
 import com.osuevents.data.Event
 import com.osuevents.db.DatabaseHandler
 
-class SQLiteEventListFragment : EventListFragment() {
+class ArrayListEventListFragment : EventListFragment() {
     val TAG: String = javaClass.simpleName
 
     var recyclerAdapter: RecyclerView.Adapter<EventListItemViewHolder>? = null
+    var eventList: ArrayList<Event>? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         recyclerAdapter = object : RecyclerView.Adapter<EventListItemViewHolder>() {
-            var eventList: ArrayList<Event>? = null
-            init {
-                var dbHandler = DatabaseHandler(context)
-                eventList = dbHandler.getAllEvents()
-            }
             override fun onBindViewHolder(holder: EventListItemViewHolder?, position: Int) {
                 holder?.bind(eventList!![position])
             }

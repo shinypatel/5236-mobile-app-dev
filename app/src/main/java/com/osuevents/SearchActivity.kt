@@ -1,6 +1,7 @@
 package com.osuevents
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.EditText
@@ -10,6 +11,7 @@ import java.util.*
 
 
 class SearchActivity : AppCompatActivity() {
+    val TAG = javaClass.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class SearchActivity : AppCompatActivity() {
         }
 
         fromDateView.setOnClickListener({
-            DatePickerDialog(this@SearchActivity, fromDate, startDateCal
+            DatePickerDialog(this, fromDate, startDateCal
                     .get(Calendar.YEAR), startDateCal.get(Calendar.MONTH),
                     startDateCal.get(Calendar.DAY_OF_MONTH)).show()
         })
@@ -43,10 +45,19 @@ class SearchActivity : AppCompatActivity() {
         }
 
         toDateView.setOnClickListener({
-            DatePickerDialog(this@SearchActivity, toDate, toDateCal
+            DatePickerDialog(this, toDate, toDateCal
                     .get(Calendar.YEAR), toDateCal.get(Calendar.MONTH),
                     toDateCal.get(Calendar.DAY_OF_MONTH)).show()
         })
+
+        btn_search.setOnClickListener { view ->
+            var intent: Intent = Intent(applicationContext, SearchResultsActivity::class.java)
+            intent.putExtra("keyword", keywords.text)
+            intent.putExtra("location", location.text)
+            intent.putExtra("from_date", fromDateView.text)
+            intent.putExtra("to_date", toDateView.text)
+            startActivity(intent)
+        }
     }
 
 
