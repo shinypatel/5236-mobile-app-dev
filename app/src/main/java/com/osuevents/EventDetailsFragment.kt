@@ -143,7 +143,7 @@ class EventDetailsFragment : Fragment() {
     }
 
     fun requestPermissions(){
-        var permissions = arrayOf(Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR,
+        val permissions = arrayOf(Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR,
                 Manifest.permission.ACCESS_FINE_LOCATION)
         ActivityCompat.requestPermissions(activity, permissions, 1)
     }

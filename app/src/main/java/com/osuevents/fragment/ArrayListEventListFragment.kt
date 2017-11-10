@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.osuevents.R
 import com.osuevents.data.Event
-import com.osuevents.db.DatabaseHandler
 
 class ArrayListEventListFragment : EventListFragment() {
     val TAG: String = javaClass.simpleName

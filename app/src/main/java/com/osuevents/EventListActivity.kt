@@ -3,7 +3,6 @@ package com.osuevents
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -33,8 +32,7 @@ class EventListActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         //toolbar.overflowIcon = resources.getDrawable(R.drawable.ic_more_vert_white_24dp)
 
-        addFragmentsToPager()
-        tabs.setupWithViewPager(pager, true)
+        refresh()
     }
 
     override fun onStart() {
@@ -44,6 +42,7 @@ class EventListActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        refresh()
 //        Log.d(TAG, "onResume() invoked")
     }
 
@@ -63,20 +62,20 @@ class EventListActivity : AppCompatActivity() {
     }
 
     private fun addFragmentsToPager() {
-        var fragments: ArrayList<EventListFragment> = ArrayList()
-        var titles: ArrayList<String> = ArrayList()
+        val fragments: ArrayList<EventListFragment> = ArrayList()
+        val titles: ArrayList<String> = ArrayList()
         var query: Query
-        var dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
-        var dateToday = dateFormat.format(Date())
-        var dateAfterAWeek = dateFormat.format(Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000))
-        var dateAfterAMonth = dateFormat.format(Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000))
+        val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val dateToday = dateFormat.format(Date())
+        val dateAfterAWeek = dateFormat.format(Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000))
+        val dateAfterAMonth = dateFormat.format(Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000))
         Log.d(TAG, dateToday + " " + dateAfterAWeek + " " + dateAfterAMonth)
 
-        var fragBookmarked = SQLiteEventListFragment()
+        val fragBookmarked = SQLiteEventListFragment()
         fragBookmarked.title = getString(R.string.tab_bookmarked)
         fragments.add(fragBookmarked)
 
-        var fragToday = FirebaseEventListFragment()
+        val fragToday = FirebaseEventListFragment()
         fragToday.title = getString(R.string.tab_today)
         query = dbRef!!.child("events")
                 .orderByChild("start_date")
@@ -85,7 +84,7 @@ class EventListActivity : AppCompatActivity() {
         fragToday.query = query
         fragments.add(fragToday)
 
-        var fragThisWeek = FirebaseEventListFragment()
+        val fragThisWeek = FirebaseEventListFragment()
         fragThisWeek.title = getString(R.string.tab_this_week)
         query = dbRef!!.child("events")
                 .orderByChild("start_date")
@@ -94,7 +93,7 @@ class EventListActivity : AppCompatActivity() {
         fragThisWeek.query = query
         fragments.add(fragThisWeek)
 
-        var fragThisMonth = FirebaseEventListFragment()
+        val fragThisMonth = FirebaseEventListFragment()
         fragThisMonth.title = getString(R.string.tab_this_month)
         query = dbRef!!.child("events")
                 .orderByChild("start_date")
@@ -119,10 +118,16 @@ class EventListActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_refresh -> {
-                (pager.getChildAt(pager.currentItem) as RecyclerView).adapter?.notifyDataSetChanged()
+                refresh()
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
+    private fun refresh(){
+        addFragmentsToPager()
+        tabs.setupWithViewPager(pager, true)
+    }
+
 }
