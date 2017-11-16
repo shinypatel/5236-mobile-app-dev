@@ -53,8 +53,8 @@ class SearchActivity : AppCompatActivity() {
 
         btn_search.setOnClickListener {
             val intent = Intent(this.applicationContext, SearchResultsActivity::class.java)
-//            intent.putExtra("keyword", keywords.text)
-//            intent.putExtra("location", location.text)
+//            intent.putExtra("keyword", keywords.text.toString())
+//            intent.putExtra("location", location.text.toString())
             intent.putExtra("from_date", fromDateView.text.toString())
             intent.putExtra("to_date", toDateView.text.toString())
             startActivity(intent)
