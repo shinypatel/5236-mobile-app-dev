@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import android.widget.EditText
 import kotlinx.android.synthetic.main.activity_search.*
 import java.text.SimpleDateFormat
@@ -50,12 +51,12 @@ class SearchActivity : AppCompatActivity() {
                     toDateCal.get(Calendar.DAY_OF_MONTH)).show()
         })
 
-        btn_search.setOnClickListener { view ->
-            var intent: Intent = Intent(applicationContext, SearchResultsActivity::class.java)
+        btn_search.setOnClickListener {
+            val intent = Intent(this.applicationContext, SearchResultsActivity::class.java)
 //            intent.putExtra("keyword", keywords.text)
 //            intent.putExtra("location", location.text)
-            intent.putExtra("from_date", fromDateView.text)
-            intent.putExtra("to_date", toDateView.text)
+            intent.putExtra("from_date", fromDateView.text.toString())
+            intent.putExtra("to_date", toDateView.text.toString())
             startActivity(intent)
         }
     }

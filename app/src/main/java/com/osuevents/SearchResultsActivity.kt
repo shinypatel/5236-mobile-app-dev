@@ -6,6 +6,9 @@ import android.util.Log
 import com.google.firebase.database.*
 import com.osuevents.data.Event
 import com.osuevents.fragment.ArrayListEventListFragment
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SearchResultsActivity : AppCompatActivity() {
     val TAG = javaClass.simpleName
@@ -13,6 +16,8 @@ class SearchResultsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search_result)
+
+//        Log.d(TAG, "onCreate() invoked")
 
         var fragment = ArrayListEventListFragment()
         fragment.eventList = getEventList(buildQuery())
@@ -26,15 +31,16 @@ class SearchResultsActivity : AppCompatActivity() {
     }
 
     fun buildQuery(): Query {
-        var dbRef = FirebaseDatabase.getInstance().reference
-        var query = dbRef.child("events").orderByChild("start_date")
+        val dbRef = FirebaseDatabase.getInstance().reference
 
-        if(intent.getStringExtra("from_date") != "") {
-            query = query.startAt(intent.getStringExtra("from_date"))
-        }
-        if(intent.getStringExtra("to_date") != "") {
-            query = query.endAt(intent.getStringExtra("to_date"))
-        }
+        val dateFormat: DateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val fromDate = dateFormat.format(dateFormat.parse(intent.getStringExtra("from_date")))
+        val toDate = dateFormat.format(dateFormat.parse(intent.getStringExtra("to_date")))
+
+        val query = dbRef!!.child("events")
+                .orderByChild("start_date")
+                .startAt(fromDate)
+                .endAt(toDate + "9")
 
         return query
     }
@@ -56,8 +62,8 @@ class SearchResultsActivity : AppCompatActivity() {
 //                    var loc = event?.location?.location
 
                     if(event != null) {// && title?.indexOf(intent.getStringExtra("keyword")) != -1
-                        //    && content?.indexOf(intent.getStringExtra("keyword")) != -1
-                          //  && loc?.indexOf(intent.getStringExtra("location")) != -1) {
+                        // && content?.indexOf(intent.getStringExtra("keyword")) != -1
+                        // && loc?.indexOf(intent.getStringExtra("location")) != -1) {
                         list.add(event)
                     }
                 }
@@ -67,4 +73,32 @@ class SearchResultsActivity : AppCompatActivity() {
 
         return list
     }
+
+
+    override fun onStart() {
+        super.onStart()
+//        Log.d(TAG, "onStart() invoked")
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        Log.d(TAG, "onResume() invoked")
+    }
+
+    override fun onPause() {
+        super.onPause()
+//        Log.d(TAG, "onPause() invoked")
+    }
+
+    override fun onStop() {
+        super.onStop()
+//        Log.d(TAG, "onStop() invoked")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+//        Log.d(TAG, "onDestroy() invoked")
+    }
+
+
 }
