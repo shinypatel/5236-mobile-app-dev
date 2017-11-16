@@ -51,13 +51,13 @@ class SearchResultsActivity : AppCompatActivity() {
 
                 for(data in snapshot.children) {
                     var event: Event? = data.getValue(Event::class.java)
-                    var title = event?.title
-                    var content = event?.content
-                    var loc = event?.location?.location
+//                    var title = event?.title
+//                    var content = event?.content
+//                    var loc = event?.location?.location
 
-                    if(event != null && title?.indexOf(intent.getStringExtra("keyword")) != -1
-                            && content?.indexOf(intent.getStringExtra("keyword")) != -1
-                            && loc?.indexOf(intent.getStringExtra("location")) != -1) {
+                    if(event != null) {// && title?.indexOf(intent.getStringExtra("keyword")) != -1
+                        //    && content?.indexOf(intent.getStringExtra("keyword")) != -1
+                          //  && loc?.indexOf(intent.getStringExtra("location")) != -1) {
                         list.add(event)
                     }
                 }

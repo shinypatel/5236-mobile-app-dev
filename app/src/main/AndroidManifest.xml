@@ -33,7 +33,8 @@
             android:name=".SearchActivity"
             android:label="@string/title_activity_search"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SearchResultsActivity"></activity>
+        <activity
+            android:name=".SearchResultsActivity" />
     </application>
 
 </manifest>
