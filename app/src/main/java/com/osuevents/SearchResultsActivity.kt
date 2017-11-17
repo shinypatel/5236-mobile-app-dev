@@ -19,7 +19,7 @@ class SearchResultsActivity : AppCompatActivity() {
 
 //        Log.d(TAG, "onCreate() invoked")
 
-        var fragment = ArrayListEventListFragment()
+        val fragment = ArrayListEventListFragment()
         fragment.eventList = getEventList(buildQuery())
 
         if (savedInstanceState == null) {
@@ -46,8 +46,8 @@ class SearchResultsActivity : AppCompatActivity() {
     }
 
     fun getEventList(query: Query): ArrayList<Event> {
-        var list: ArrayList<Event> = ArrayList()
-        var listener: ValueEventListener = object: ValueEventListener {
+        val list: ArrayList<Event> = ArrayList()
+        val listener: ValueEventListener = object: ValueEventListener {
             override fun onCancelled(p0: DatabaseError?) {
                 Log.e(TAG, "Error fetching search results")
             }
@@ -56,7 +56,7 @@ class SearchResultsActivity : AppCompatActivity() {
                 Log.d(TAG, "" + snapshot.childrenCount + " results found")
 
                 for(data in snapshot.children) {
-                    var event: Event? = data.getValue(Event::class.java)
+                    val event: Event? = data.getValue(Event::class.java)
 //                    var title = event?.title
 //                    var content = event?.content
 //                    var loc = event?.location?.location
