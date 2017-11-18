@@ -1,8 +1,11 @@
 package com.osuevents
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import com.google.firebase.database.*
 import com.osuevents.data.Event
 import com.osuevents.fragment.ArrayListEventListFragment
@@ -19,14 +22,18 @@ class SearchResultsActivity : AppCompatActivity() {
 
 //        Log.d(TAG, "onCreate() invoked")
 
-        val fragment = ArrayListEventListFragment()
-        fragment.eventList = getEventList(buildQuery())
+        if(Utility.isNetworkAvailable(this)){
+            val fragment = ArrayListEventListFragment()
+            fragment.eventList = getEventList(buildQuery())
 
-        if (savedInstanceState == null) {
-            supportFragmentManager
-                    .beginTransaction()
-                    .add(R.id.fragment_search_results, fragment)
-                    .commit()
+            if (savedInstanceState == null) {
+                supportFragmentManager
+                        .beginTransaction()
+                        .add(R.id.fragment_search_results, fragment)
+                        .commit()
+            }
+        }else{
+            Toast.makeText(this, R.string.internet_connection, Toast.LENGTH_LONG).show()
         }
     }
 
@@ -99,6 +106,5 @@ class SearchResultsActivity : AppCompatActivity() {
         super.onDestroy()
 //        Log.d(TAG, "onDestroy() invoked")
     }
-
 
 }

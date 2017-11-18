@@ -35,5 +35,6 @@
 
     <string name="bookmark_added">Bookmark added</string>
     <string name="bookmark_removed">Bookmark removed</string>
+    <string name="internet_connection">Please make sure you are connected to the internet!</string>
 
 </resources>

@@ -1,11 +1,13 @@
 package com.osuevents
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
@@ -16,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_event_list.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class EventListActivity : AppCompatActivity() {
     private val TAG: String = javaClass.simpleName
@@ -31,8 +34,11 @@ class EventListActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)
         //toolbar.overflowIcon = resources.getDrawable(R.drawable.ic_more_vert_white_24dp)
-
-        refresh()
+        if(Utility.isNetworkAvailable(this)){
+            refresh()
+        }else{
+            Toast.makeText(this, R.string.internet_connection, Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onStart() {
@@ -69,7 +75,7 @@ class EventListActivity : AppCompatActivity() {
         val dateToday = dateFormat.format(Date())
         val dateAfterAWeek = dateFormat.format(Date(System.currentTimeMillis() + 7 * 24 * 60 * 60 * 1000))
         val dateAfterAMonth = dateFormat.format(Date(System.currentTimeMillis() + 30L * 24 * 60 * 60 * 1000))
-        Log.d(TAG, dateToday + " " + dateAfterAWeek + " " + dateAfterAMonth)
+//        Log.d(TAG, dateToday + " " + dateAfterAWeek + " " + dateAfterAMonth)
 
         val fragBookmarked = SQLiteEventListFragment()
         fragBookmarked.title = getString(R.string.tab_bookmarked)
