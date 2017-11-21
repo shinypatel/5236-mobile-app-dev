@@ -51,7 +51,7 @@ public class BookmarkTest {
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
-            Thread.sleep( 6000 );
+            Thread.sleep( 8000 );
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class BookmarkTest {
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
         try {
-            Thread.sleep( 1000 );
+            Thread.sleep( 3000 );
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -83,47 +83,6 @@ public class BookmarkTest {
                                 0 ),
                         isDisplayed() ) );
         actionMenuItemView.perform( click() );
-
-        pressBack();
-
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-        try {
-            Thread.sleep( 1000 );
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ViewInteraction recyclerView2 = onView(
-                allOf( withId( R.id.list ),
-                        withParent( allOf( withId( R.id.pager ),
-                                childAtPosition(
-                                        withClassName( is( "android.support.v4.widget.NestedScrollView" ) ),
-                                        0 ) ) ),
-                        isDisplayed() ) );
-        recyclerView2.perform( actionOnItemAtPosition( 0, click() ) );
-
-        // Added a sleep statement to match the app's execution delay.
-        // The recommended way to handle such scenarios is to use Espresso idling resources:
-        // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
-        try {
-            Thread.sleep( 1000 );
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ViewInteraction actionMenuItemView2 = onView(
-                allOf( withId( R.id.action_bookmark ), withContentDescription( "Bookmark" ),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId( R.id.toolbar ),
-                                        1 ),
-                                0 ),
-                        isDisplayed() ) );
-        actionMenuItemView2.perform( click() );
-
-        pressBack();
 
     }
 
