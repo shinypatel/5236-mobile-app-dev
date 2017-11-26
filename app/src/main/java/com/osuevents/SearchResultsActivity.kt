@@ -1,14 +1,12 @@
 package com.osuevents
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.osuevents.data.Event
-import com.osuevents.fragment.ArrayListEventListFragment
+import com.osuevents.fragment.FirebaseEventListFragment
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,8 +21,8 @@ class SearchResultsActivity : AppCompatActivity() {
 //        Log.d(TAG, "onCreate() invoked")
 
         if(Utility.isNetworkAvailable(this)){
-            val fragment = ArrayListEventListFragment()
-            fragment.eventList = getEventList(buildQuery())
+            val fragment = FirebaseEventListFragment()
+            fragment.query = buildQuery()
 
             if (savedInstanceState == null) {
                 supportFragmentManager
