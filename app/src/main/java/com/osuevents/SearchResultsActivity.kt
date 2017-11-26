@@ -1,14 +1,12 @@
 package com.osuevents
 
-import android.content.Context
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.*
 import com.osuevents.data.Event
-import com.osuevents.fragment.ArrayListEventListFragment
+import com.osuevents.fragment.FirebaseEventListFragment
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,8 +21,8 @@ class SearchResultsActivity : AppCompatActivity() {
 //        Log.d(TAG, "onCreate() invoked")
 
         if(Utility.isNetworkAvailable(this)){
-            val fragment = ArrayListEventListFragment()
-            fragment.eventList = getEventList(buildQuery())
+            val fragment = FirebaseEventListFragment()
+            fragment.query = buildQuery()
 
             if (savedInstanceState == null) {
                 supportFragmentManager
@@ -51,36 +49,6 @@ class SearchResultsActivity : AppCompatActivity() {
 
         return query
     }
-
-    fun getEventList(query: Query): ArrayList<Event> {
-        val list: ArrayList<Event> = ArrayList()
-        val listener: ValueEventListener = object: ValueEventListener {
-            override fun onCancelled(p0: DatabaseError?) {
-                Log.e(TAG, "Error fetching search results")
-            }
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d(TAG, "" + snapshot.childrenCount + " results found")
-
-                for(data in snapshot.children) {
-                    val event: Event? = data.getValue(Event::class.java)
-//                    var title = event?.title
-//                    var content = event?.content
-//                    var loc = event?.location?.location
-
-                    if(event != null) {// && title?.indexOf(intent.getStringExtra("keyword")) != -1
-                        // && content?.indexOf(intent.getStringExtra("keyword")) != -1
-                        // && loc?.indexOf(intent.getStringExtra("location")) != -1) {
-                        list.add(event)
-                    }
-                }
-            }
-        }
-        query.addValueEventListener(listener)
-
-        return list
-    }
-
 
     override fun onStart() {
         super.onStart()

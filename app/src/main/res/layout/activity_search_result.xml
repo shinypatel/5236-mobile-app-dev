@@ -19,12 +19,12 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_search_results"
         app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
 
-    </android.support.v4.widget.NestedScrollView>
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
